@@ -11,6 +11,9 @@
 					<field name="expected_price"/>
 					<field name="selling_price"/>
 					<field name="bed_room"/>
+					<field name="active"/>
+					<field name="state"/>
+
 				</list>
 			</field>
 		</record>
@@ -35,6 +38,7 @@
 								<field name="expected_price" string="Expected Price"/>
 								<field name="selling_price" string="Selling Price"/>
 							</group>
+							
 						</group>
 						<notebook>
 							<page string="Description">
@@ -47,6 +51,10 @@
 									<field name="garden" string="Garden"/>
 									<field name="garden_area" string="Garden Area (sqm)" invisible="garden == False"/>
 									<field name="garden_orientation" string="Garden Orientation" invisible="garden == False"/>
+								</group>
+								<group string="Property Status">
+									<field name="active"/>
+									<field name="state"/>
 								</group>
 							</page>
 						</notebook>
@@ -61,9 +69,16 @@
 			<field name="model">y.realestate.property</field>
 			<field name="arch" type="xml">
 				<search>
+					<!-- Start add at 20250110-1520: Add state field after postcode -->
 					<field name="name"/>
 					<field name="postcode"/>
-				</search>
+					<field name="state" string="Status"/>
+					<!-- End add at 20250110-1520: Add state field after postcode -->
+					<!-- Start add at 20250110-1520: Add Archived and State filters -->
+					<filter name="Inactive" string="Archived" domain="[('active', '=', False)]"/>
+					<filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+					<!-- End add at 20250110-1520: Add Archived and State filters -->
+            	</search>
 			</field>
 		</record>
 
@@ -73,7 +88,7 @@
 			<field name="res_model">y.realestate.property</field>
 			<field name="view_mode">list,form</field>
 			<field name="domain">[]</field>
-			<field name="context">{}</field>
+			<field name="context">{'active_test': False}</field>
 			<field name="help" type="html">
 				<p class="o_view_nocontent_smiling_face">
 					Add a new Real Estate Property

@@ -35,3 +35,28 @@ class RealEstate(models.Model):
         default='north',
         help="Select the orientation of the garden."
 )
+
+class RealEstatePropertyExtension(models.Model):
+    _inherit = 'y.realestate.property'
+    
+    active = fields.Boolean(
+        string="Active",
+        required=False,
+        default=True,
+        help="Manage the status of the property usage"
+    )
+    state = fields.Selection(
+        string="State",
+        selection=[
+            ('new', 'New'),
+            ('offer_received', 'Offer Received'),
+            ('offer_accepted', 'Offer Accepted'),
+            ('sold', 'Sold'),
+            ('canceled', 'Canceled')
+        ],
+        required=True,
+        default='new',
+        copy=False,
+        help="The current state of the property."
+    )
+

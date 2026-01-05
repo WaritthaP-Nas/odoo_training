@@ -13,6 +13,8 @@
             <field name="garden" eval="True"/>
             <field name="garden_area">500</field>
             <field name="garden_orientation">south</field>
+            <field name="active" eval="True"/>
+            <field name="state">new</field>
         </record>
 
         <record id="property_2" model="y.realestate.property">
@@ -25,6 +27,8 @@
             <field name="facades">1</field>
             <field name="garage" eval="True"/>
             <field name="garden" eval="False"/>
+            <field name="active" eval="True"/>
+            <field name="state">new</field>
         </record>
 
         <record id="property_3" model="y.realestate.property">
@@ -39,6 +43,8 @@
             <field name="garden" eval="True"/>
             <field name="garden_area">200</field>
             <field name="garden_orientation">east</field>
+            <field name="active" eval="True"/>
+            <field name="state">new</field>
         </record>
 
         <record id="property_4" model="y.realestate.property">
@@ -53,6 +59,8 @@
             <field name="garden" eval="True"/>
             <field name="garden_area">350</field>
             <field name="garden_orientation">west</field>
+            <field name="active" eval="True"/>
+            <field name="state">new</field>
         </record>
 
         <record id="property_5" model="y.realestate.property">
@@ -65,6 +73,8 @@
             <field name="facades">1</field>
             <field name="garage" eval="False"/>
             <field name="garden" eval="False"/>
+            <field name="active" eval="True"/>
+            <field name="state">new</field>
         </record>
     </data>
 </odoo>
