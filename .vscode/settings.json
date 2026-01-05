@@ -1,0 +1,10 @@
+{
+    "python.analysis.extraPaths": [
+        "D:/Program Files/Odoo19/server",
+        "D:/Program Files/Odoo19/server/odoo"
+    ],
+    "python.defaultInterpreterPath": "C:\\Python313\\python.exe",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": [],
+    "python.envFile": "D:\\Program Files\\Odoo19\\.env"
+}
