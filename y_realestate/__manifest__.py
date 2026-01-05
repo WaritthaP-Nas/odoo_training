@@ -11,9 +11,12 @@
        'data': [
             'security/ir.model.access.csv',
             'views/property.xml',
+            'views/property_type_views.xml',
+            'views/property_tag_views.xml',
             'views/menu.xml',
         ],
-       'demo': [           
+       'demo': [
+            'data/property_demo.xml',
         ],
        'installable': True,
        'application': True,

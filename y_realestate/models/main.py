@@ -6,6 +6,7 @@ class RealEstate(models.Model):
     _description = "Real Estate advertisement"
     _order = 'id desc'
 
+    active = fields.Boolean(string="Active", default=True)
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description", required=False)
     postcode = fields.Char(string="Postcode", required=False)
@@ -34,17 +35,26 @@ class RealEstate(models.Model):
         required=False,
         default='north',
         help="Select the orientation of the garden."
-)
+    )
+    property_type_id = fields.Many2one(
+        'y.realestate.property.type',
+        string="Property Type"
+    )
+
+    property_tag_id = fields.Many2many(
+        'y.realestate.property.tag',
+        string="Property Tags"
+    )
+
+    offer_ids = fields.One2many(
+        'y.realestate.property.offer',
+        'property_id',
+        string="Offers"
+    )
 
 class RealEstatePropertyExtension(models.Model):
     _inherit = 'y.realestate.property'
     
-    active = fields.Boolean(
-        string="Active",
-        required=False,
-        default=True,
-        help="Manage the status of the property usage"
-    )
     state = fields.Selection(
         string="State",
         selection=[
@@ -59,4 +69,6 @@ class RealEstatePropertyExtension(models.Model):
         copy=False,
         help="The current state of the property."
     )
+
+    
 
